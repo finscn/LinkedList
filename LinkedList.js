@@ -28,16 +28,16 @@
 		swap : function(node1, node2){
 			
 			node1._prev._next = node2;
-            var tmp = node2._prev;
-            node2._prev = node1._prev;
-            node1._prev = tmp;
-            tmp._next = node1;
+			var tmp = node2._prev;
+			node2._prev = node1._prev;
+			node1._prev = tmp;
+			tmp._next = node1;
 
-            node1._next.prev = node2;
-            tmp = node2._next;
-            node2._next = node1._next;
-            node1._next = tmp;
-            tmp._prev = node1;
+			node1._next.prev = node2;
+			tmp = node2._next;
+			node2._next = node1._next;
+			node1._next = tmp;
+			tmp._prev = node1;
 
 		},
 
@@ -103,7 +103,7 @@
 			node._prev._next=beforeNode._prev = node;
 			this.length++;
 		},
-		
+
 		indexOf : function(nodeI){
 			var node=this.head;
 			var idx=0;
