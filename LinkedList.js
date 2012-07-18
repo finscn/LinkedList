@@ -26,7 +26,6 @@
 		},
 
 		swap : function(node1, node2){
-			
 			node1._prev._next = node2;
 			var tmp = node2._prev;
 			node2._prev = node1._prev;
