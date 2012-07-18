@@ -47,6 +47,7 @@
 			node._prev._next = this.tail._prev = node;
 			this.length++;
 		},
+
 		addNodes : function( args ){
 			for (var i=0,len=arguments.length;i<len;i++){
 				this.addNode(arguments[i]);
@@ -79,6 +80,7 @@
 			node._prev = afterNode;
 			node._next._prev=afterNode._next = node;
 		},
+
 		moveBefore : function(node,afterNode){
 			node._prev._next = node._next;
 			node._next._prev = node._prev;
@@ -101,6 +103,7 @@
 			node._prev._next=beforeNode._prev = node;
 			this.length++;
 		},
+		
 		indexOf : function(nodeI){
 			var node=this.head;
 			var idx=0;
