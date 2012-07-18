@@ -55,11 +55,22 @@ function test_removeLast(){
 	return ok;
 }
 
+function test_indexOf(){
+	reset();
+	var r1=sample.indexOf({});
+	var r2=sample.indexOf(b);
+
+	var rs=([r1,r2]).join(",");
+	var ok=rs=="-1,1";
+	console.log("test_indexOf", rs, ok);
+	return ok;
+}
 ////////////////
 ////////////////
 
 test_swap();
 test_removeLast();
+test_indexOf();
 
 </script>
 

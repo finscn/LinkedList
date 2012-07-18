@@ -101,6 +101,17 @@
 			node._prev._next=beforeNode._prev = node;
 			this.length++;
 		},
+		indexOf : function(nodeI){
+			var node=this.head;
+			var idx=0;
+			while( (node=node._next)!=this.tail ){
+				if (nodeI===node){
+					return idx;
+				}
+				idx++;
+			}
+			return -1;
+		},
 
 		isHead : function(node){
 			return node===this.head;
@@ -136,8 +147,8 @@
 
 		getNodeByIndex : function(index){
 			index||0;
-			var node=this.first();
-			for (i=0;i<index;i++){
+			var node=this.head;
+			for (var i=0;i<index;i++){
 				node=node._next;
 			}
 			return node;
