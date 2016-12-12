@@ -1,4 +1,3 @@
-
 ;(function(exports, undefined){
 
 	var LinkedList = exports.LinkedList = function(){
@@ -184,7 +183,51 @@
 				});
 			}
 			return arr;
-		}
+		},
+		
+		/* 简单排序
+		 * @param key 排序依据
+		 * @param desc 是否降序
+		 */
+		sort : function(key, desc) {
+			var arr = this.toArray();
+
+			arr.sort(function(value1, value2) {
+				//默认按id排序
+				if(typeof key == 'undefined' || key == 'id') {
+					var num1 = value1['id'];
+					var num2 = value2['id'];
+				} else {
+					var num1 = value1[key];
+					var num2 = value2[key];
+				}
+
+				//针对数字类型的排序
+				if(isNaN(num1) == false) {
+					//默认升序asc
+					if(typeof desc == 'undefined' || desc == false) {
+						return num1 - num2;
+					} else {//降序desc
+						return num2 - num1;
+					}
+				//字符串比较
+				} else {
+					if(typeof desc == 'undefined' || desc == false) {
+						return num1.localeCompare(num2);
+					} else {//降序desc
+						return num2.localeCompare(num1);
+					}
+					
+				}
+				
+			});
+
+			this.clear();
+			for(i = 0; i < arr.length; i++) {
+				this.addNodes(arr[i]);
+			}
+		},
+		
 	};
 
 	for (var p in proto){
